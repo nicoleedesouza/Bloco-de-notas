@@ -2,11 +2,22 @@
     margin:0;
     padding:0;
   }
+
+  body{
+    background-color:thistle;
+  }
   
   header{
-    border-bottom: 1px solid #1b85dc;
-    height: 10vh;
+    border-bottom: 1px solid rgb(118, 62, 118);
     display:flex;
+    height: 15vh;
+    font-family:garamond;
+  }
+
+  h1{
+    margin-left: 15%;
+    margin-top: 7%;
+    font-size: 40px;
   }
   
   #logo{
@@ -15,8 +26,10 @@
   }
   
   #logo img{
-    height: 8vh;
+    height: 18vh;
+    margin-left: 91vw;
   }
+
   #display{
     width: 50vw;
   }
@@ -41,7 +54,7 @@
   }
   
   #modal-view{
-    border:1px solid #1b85dc;
+    border:1px solid rgb(118, 62, 118);
     position: absolute;
     display:none;
     width: 90vw;
@@ -54,7 +67,7 @@
   }
   
   #modal{
-    border:1px solid #1b85dc;
+    border:1px solid rgb(118, 62, 118);
     position: absolute;
     padding:2vh 2vw;
     display:none;
@@ -64,4 +77,4 @@
   #controls-note{
     display:flex;
     gap:10px;
-  }  
+  }
