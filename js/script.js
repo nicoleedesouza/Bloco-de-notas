@@ -134,6 +134,7 @@ const saveNote = (note) => {
       let divEdit = document.createElement("div");
       let iEdit = document.createElement("i");
       iEdit.className = 'bi bi-pen';
+      iEdit.style.color = 'rgb(124, 60, 124)';
       divEdit.appendChild(iEdit);
       document.querySelector("#controls-note").appendChild(divEdit);
   
@@ -149,21 +150,28 @@ const saveNote = (note) => {
         modalView.style.display = 'none';
       })
   
-  
-      let divExc = document.createElement("div");
-      let iExc = document.createElement("i");
-      iExc.className = 'bi bi-trash3';
-      divExc.appendChild(iExc);
-      document.querySelector("#controls-note").appendChild(divExc);
-  
-  
-      divExc.addEventListener("click", (evt) =>{
-        evt.preventDefault();
-        modal.style.display="none";
-        addNote.style.display = "block";
-        notes.style.display = "none";
-        modalView.style.display = 'none';
-      })
+    //Ícone para excluir
+    let divDelete = document.createElement("div");
+    let iDelete = document.createElement("i");
+    iDelete.className = 'bi bi-trash3';
+    iDelete.style.color = 'rgb(124, 60, 124)';
+    divDelete.appendChild(iDelete);
+    document.querySelector("#controls-note").appendChild(divDelete);
+
+    divDelete.addEventListener("click", (evt) => {
+      evt.preventDefault();
+      deleteNote(note.id);
+      modalView.style.display = 'none';
+      addNote.style.display = 'block';
+      notes.style.display = 'flex';
+    });
+    const deleteNote = (noteId) => {
+      let notes = loadNotes();
+      notes = notes.filter(note => note.id !== noteId); // Corrigido aqui, usando '!=='
+      notes = JSON.stringify(notes);
+      localStorage.setItem('notes', notes);
+      listNotes();
+    }
     }
 
   const dateFormat = (timestamp) =>{
